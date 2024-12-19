@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import ScrollReveal from './components/ScrollReveal';
+import ThemeToggle from './components/Header/ThemeToggle';
 import { SectionProvider } from './components/ScrollReveal/SectionContext';
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
   return (
     <SectionProvider>
       <div className="min-h-screen bg-[var(--bg-color,#f3f4f6)]">
+        <ThemeToggle />
         <Sidebar 
           isOpen={isSidebarOpen} 
           onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
