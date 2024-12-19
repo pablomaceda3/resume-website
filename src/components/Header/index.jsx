@@ -26,7 +26,7 @@ const Header = () => {
           </a>
           
           <a href="tel:(281) 750-2521"
-             className="flex items-center gap-3 hover:text-[var(--icon-color,#2563eb)] transition-colors">
+             className="flex items-center gap-3 hover:text-[var(--icon-color,#2563eb)] transition-all duration-300 hover:-translate-y-1 group">
             <Phone size={20} className="text-[var(--icon-color,#2563eb)]" />
             <span>(281) 750-2521</span>
           </a>
