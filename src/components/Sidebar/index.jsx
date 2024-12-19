@@ -82,9 +82,9 @@ const Sidebar = ({ isOpen, onToggle }) => {
             href={item.href}
             onClick={(e) => handleClick(e, item.href, item.label)}
             className="flex items-center mb-6 text-[var(--text-color,#4B5563)] 
-                     hover:text-[var(--icon-color,#2563eb)] transition-colors
-                     rounded-lg hover:bg-opacity-10 hover:bg-[var(--text-color,#4B5563)]
-                     px-3 py-2"
+         hover:text-[var(--icon-color,#2563eb)] transition-colors
+         rounded-lg bg-opacity-0 hover:bg-black hover:bg-opacity-5
+         px-3 py-2"
             title={!isOpen ? item.label : ''}
           >
             <div className="w-6 flex justify-center">
