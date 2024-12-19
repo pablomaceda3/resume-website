@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure body takes full height and has no margin */
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Define our theme variables at the root level */
+:root {
+  --bg-color: #f3f4f6;
+  --text-color: #4B5563;
+  --icon-color: #2563eb;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1f2937;
+    --text-color: #e5e7eb;
+    --icon-color: #60a5fa;
+  }
+}
