@@ -7,7 +7,7 @@ export const resumeData = {
     location: "Austin, TX, 78626",
   },
   summary:
-    "Driven, multidisciplinary data engineer with a passion for ETL and building data pipelines. Adept at individual work and collaborating with teams to create maintainable, robust, and scalable data engines.",
+    "Data Engineer with 5+ years of experience specializing in ETL pipeline development and cloud infrastructure. Demonstrated expertise in optimizing data processing workflows, reducing operational overhead, and scaling distributed systems using AWS, Python, and Terraform.",
   skills: {
     languages: ["Python", "SQL", "JavaScript", "HTML/CSS"],
     cloudInfra: ["AWS", "Terraform", "Docker", "Ansible"],
