@@ -1,50 +1,46 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useSection } from './SectionContext';
+// ScrollReveal.jsx
+import React, { useEffect, useState, useRef } from 'react';
 
 const ScrollReveal = ({ children, id }) => {
-  const ref = useRef(null);
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const { activeSections } = useSection();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
       {
+        root: null,
+        rootMargin: '-20% 0px',
         threshold: 0.1,
-        rootMargin: '50px'
       }
     );
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
   }, []);
 
-  const shouldShow = isIntersecting && activeSections.has(id);
-
   return (
-    <div
+    <section 
+      ref={sectionRef}
       id={id}
-      ref={ref}
       className={`
         transform transition-all duration-1000
-        ${shouldShow 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-16'
-        }
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
       `}
     >
       {children}
-    </div>
+    </section>
   );
 };
 

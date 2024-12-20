@@ -1,4 +1,5 @@
 import React from 'react';
+import { resumeData } from '../../data/resume';
 
 const Summary = () => {
   const technologies = [

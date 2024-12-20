@@ -6,51 +6,74 @@ import Sidebar from './components/Sidebar';
 import Education from './components/Education';
 import Skills from './components/Skills';
 import ScrollReveal from './components/ScrollReveal';
-import ThemeToggle from './components/Header/ThemeToggle';
 import { SectionProvider } from './components/ScrollReveal/SectionContext';
+import { Menu } from 'lucide-react';
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  
-  // Move theme initialization to App component
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    // Set initial theme based on system preference
-    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const isDarkMode = darkModeMediaQuery.matches;
-    
-    // Set initial CSS variables
-    document.documentElement.classList.add('transition-colors', 'duration-200');
-    document.documentElement.style.setProperty('--bg-color', isDarkMode ? '#1f2937' : '#f3f4f6');
-    document.documentElement.style.setProperty('--text-color', isDarkMode ? '#e5e7eb' : '#4B5563');
-    document.documentElement.style.setProperty('--icon-color', isDarkMode ? '#60a5fa' : '#2563eb');
-    
-    // Listen for system theme changes
-    const handleThemeChange = (e) => {
-      const newIsDarkMode = e.matches;
-      document.documentElement.style.setProperty('--bg-color', newIsDarkMode ? '#1f2937' : '#f3f4f6');
-      document.documentElement.style.setProperty('--text-color', newIsDarkMode ? '#e5e7eb' : '#4B5563');
-      document.documentElement.style.setProperty('--icon-color', newIsDarkMode ? '#60a5fa' : '#2563eb');
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth < 768) {
+        setIsSidebarOpen(false);
+      }
     };
-    
-    darkModeMediaQuery.addEventListener('change', handleThemeChange);
-    return () => darkModeMediaQuery.removeEventListener('change', handleThemeChange);
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
     <SectionProvider>
       <div className="min-h-screen bg-[var(--bg-color,#f3f4f6)]">
-        <ThemeToggle />
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="fixed top-4 left-4 z-50 p-2 rounded-lg bg-[var(--bg-color,#f3f4f6)] 
+                      shadow-md border border-[var(--text-color,#4B5563)] border-opacity-20"
+          >
+            <Menu className="text-[var(--text-color,#4B5563)]" />
+          </button>
+        )}
+
+        {/* Overlay for mobile when sidebar is open */}
+        {isMobile && isSidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            onClick={() => setIsSidebarOpen(false)}
+          />
+        )}
+
         <Sidebar 
           isOpen={isSidebarOpen} 
-          onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
+          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+          isMobile={isMobile}
         />
         
-        <main className={`transition-all duration-300 ${isSidebarOpen ? 'ml-72' : 'ml-20'}`}>
+        <main 
+          className={`
+            transition-all duration-300
+            ${isMobile 
+              ? 'ml-0 px-4' 
+              : isSidebarOpen 
+                ? 'ml-72' 
+                : 'ml-20'
+            }
+          `}
+        >
           <Header />
           
-          <div className="space-y-32 pb-32 mt-8">
+          <div className="space-y-16 md:space-y-32 pb-16 md:pb-32 mt-8">
             <ScrollReveal id="summary">
               <Summary />
+            </ScrollReveal>
+
+            <ScrollReveal id="skills">
+              <Skills />
             </ScrollReveal>
             
             <ScrollReveal id="experience">
@@ -61,9 +84,6 @@ const App = () => {
               <Education />
             </ScrollReveal>
 
-            <ScrollReveal id="skills">
-              <Skills />
-            </ScrollReveal>
           </div>
         </main>
       </div>

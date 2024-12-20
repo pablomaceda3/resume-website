@@ -1,22 +1,20 @@
-import React, { createContext, useState, useContext } from 'react';
+// SectionContext.jsx
+import React, { createContext, useContext, useState } from 'react';
 
 const SectionContext = createContext();
 
-const SectionProvider = ({ children }) => {
-  const [activeSections, setActiveSections] = useState(new Set());
+export const useSection = () => useContext(SectionContext);
+
+export const SectionProvider = ({ children }) => {
+  const [activeSection, setActiveSection] = useState('summary');
 
   const activateSection = (sectionId) => {
-    setActiveSections(prev => new Set([...prev, sectionId]));
+    setActiveSection(sectionId);
   };
 
   return (
-    <SectionContext.Provider value={{ activeSections, activateSection }}>
+    <SectionContext.Provider value={{ activeSection, activateSection }}>
       {children}
     </SectionContext.Provider>
   );
 };
-
-const useSection = () => useContext(SectionContext);
-
-export { SectionProvider, useSection };
-export default SectionContext;

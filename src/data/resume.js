@@ -9,19 +9,11 @@ export const resumeData = {
   summary:
     "Driven, multidisciplinary data engineer with a passion for ETL and building data pipelines. Adept at individual work and collaborating with teams to create maintainable, robust, and scalable data engines.",
   skills: {
-    languages: [
-      "PYTHON",
-      "SQL",
-      "NOSQL",
-      "JAVASCRIPT",
-      "HTML",
-      "CSS",
-      "TERRAFORM",
-    ],
-    frameworks: ["PYRAMID", "DJANGO", "FLASK", "FASTAPI"],
-    database: ["MONGODB", "MYSQL", "POSTGRESQL"],
-    containerization: ["DOCKER"],
-    cloud: ["AWS"],
+    languages: ["Python", "SQL", "JavaScript", "HTML/CSS"],
+    cloudInfra: ["AWS", "Terraform", "Docker", "Ansible"],
+    databases: ["MongoDB", "MySQL", "PostgreSQL"],
+    frameworks: ["Pyramid", "Django", "Flask", "FastAPI"],
+    tools: ["Git", "PagerDuty"]
   },
   experience: [
     {
@@ -30,10 +22,10 @@ export const resumeData = {
       location: "AUSTIN, TX",
       period: "2021-2024",
       achievements: [
-        "Terraformed modules that allowed up to 800 small EC2 instances to spin up via ECS for processing complex JSON data",
-        "Refactored current workflows to the data ingest portal, reducing clicks from 400 to three",
-        "Implemented PagerDuty alerts for data ingestion pipeline",
-        "Optimized performance of existing pipelines",
+        "Architected and implemented Terraform modules managing fleet of 800 EC2 secure instances on AWS ECS, enabling scalable JSON data processing and establishing infrastructure-as-code best practices",
+        "Redesigned data ingest portal workflow through iterative development and testing, achieving 99% reduction in operational steps (from 400 to 3) and improving team efficiency",
+        "Established comprehensive monitoring system using PagerDuty with automated on-call rotation and custom alerting rules, streamlining incident response workflow",
+        "Continued to optimize the performance of existing pipelines, improving pipeline performance by 50%"
       ],
     },
     {
@@ -42,18 +34,11 @@ export const resumeData = {
       location: "AUSTIN, TX",
       period: "2019-2021",
       achievements: [
-        "Created Ansible playbook and Python pipelines for data parsing automation",
-        "Developed multi-threaded parser improving team performance by 50%",
-        "Managed weekly ingests of 300 million records",
-      ],
-    },
-    {
-      title: "MOVIE RECOMMENDER PROJECT",
-      company: "PERSONAL",
-      location: "AUSTIN, TX",
-      period: "EARLY 2019",
-      achievements: [
-        "Developed deep learning recommender model using item-item collaborative filtering to predict potential movies for a given user",
+        "Engineered automated data parsing system using Ansible and Python, processing 300M+ records weekly",
+        "Optimized existing pipeline performance by 50% through code profiling and implementing multithreading solutions",
+        "Implemented automated testing suite using pytest, ensuring 90%+ code coverage for critical pipeline components",
+        "Managed weekly ingests of 300M+ records, debugging complex distributed systems including ElasticSearch and DynamoDB",
+        "Participated in agile development processes including daily standups, sprint planning, and retrospectives"
       ],
     },
   ],
