@@ -5,6 +5,10 @@ export const resumeData = {
     phone: "(281) 750-2521",
     email: "pablomaceda3@gmail.com",
     location: "Austin, TX, 78626",
+    social: {
+      github: "pablomaceda3",
+      soundcloud: "doubl_es_harp"
+    }
   },
   summary:
     "Data Engineer with 5+ years of experience specializing in ETL pipeline development and cloud infrastructure. Demonstrated expertise in optimizing data processing workflows, reducing operational overhead, and scaling distributed systems using AWS, Python, and Terraform.",
