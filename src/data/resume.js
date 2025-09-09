@@ -8,7 +8,7 @@ export const resumeData = {
     social: {
       github: "pablomaceda3",
       linkedin: "pablomaceda3",
-      soundcloud: "pabloamaceda"
+      soundcloud: "pablo-a-maceda"
     }
   },
   summary:

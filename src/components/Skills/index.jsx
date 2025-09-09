@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { 
   Code, 
   Terminal, 
@@ -24,6 +24,11 @@ const SkillBadge = ({ skill, icon: Icon }) => (
   </div>
 );
 
+SkillBadge.propTypes = {
+  skill: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired,
+};
+
 const SkillCategory = ({ icon: Icon, title, skills }) => (
   <div className="mb-8">
     <div className="flex items-center gap-2 mb-4">
@@ -41,6 +46,15 @@ const SkillCategory = ({ icon: Icon, title, skills }) => (
     </div>
   </div>
 );
+
+SkillCategory.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  title: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.elementType.isRequired,
+  })).isRequired,
+};
 
 // Map icons to skills based on keywords
 const getIconForSkill = (skill) => {
@@ -124,5 +138,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-
