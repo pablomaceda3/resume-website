@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Briefcase, GraduationCap, Code, ChevronLeft } from 'lucide-react';
+import { User, Briefcase, GraduationCap, Code, Music, ChevronLeft } from 'lucide-react';
 import { useSection } from '../ScrollReveal/SectionContext';
 
 const Sidebar = ({ isOpen, onToggle, isMobile }) => {
@@ -10,6 +10,7 @@ const Sidebar = ({ isOpen, onToggle, isMobile }) => {
     { icon: Code, label: 'Skills', href: '#skills' },
     { icon: Briefcase, label: 'Experience', href: '#experience' },
     { icon: GraduationCap, label: 'Education', href: '#education' },
+    // { icon: Music, label: 'Music', href: '#music' },
   ];
 
   const smoothScroll = (targetPosition, duration = 1000) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Cloud, GitBranch } from 'lucide-react';
+import { Mail, Phone, MapPin, Cloud, GitBranch, Linkedin } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { resumeData } from '../../data/resume';
 
@@ -16,6 +16,11 @@ const Header = () => {
       name: 'SoundCloud',
       url: `https://soundcloud.com/${personalInfo.social.soundcloud}`,
       icon: Cloud
+    },
+    {
+      name: 'LinkedIn',
+      url: `https://www.linkedin.com/in/${personalInfo.social.linkedin}`,
+      icon: Linkedin
     }
   ];
 
@@ -46,7 +51,7 @@ const Header = () => {
             {personalInfo.name}
           </h1>
           <p className="text-lg md:text-xl text-[var(--text-color,#4B5563)] opacity-90 max-w-2xl mx-auto">
-            Data Engineer & Software Developer
+            Data, Cellular, & Tissue Engineer | Full-Stack Software Developer
           </p>
         </div>
         
@@ -82,6 +87,7 @@ const Header = () => {
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
             {socialLinks.map((item, index) => {
               const Icon = item.icon;
+              
               return (
                 <a 
                   key={index}

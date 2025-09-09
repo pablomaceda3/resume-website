@@ -8,7 +8,8 @@ import {
   Box,
   Wrench,
   GitBranch,
-  Bell
+  Bell,
+  FlaskConical
 } from 'lucide-react';
 import { resumeData } from '../../data/resume';
 
@@ -99,6 +100,14 @@ const Skills = () => {
         name: skill,
         icon: getIconForSkill(skill)
       }))
+    },
+    {
+      icon: FlaskConical,
+      title: "Science",
+      skills: resumeData.skills.science.map(skill => ({
+        name: skill,
+        icon: getIconForSkill(skill)
+      }))
     }
   ];
 
@@ -115,3 +124,5 @@ const Skills = () => {
 };
 
 export default Skills;
+
+

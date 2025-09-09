@@ -5,6 +5,7 @@ import Experience from './components/Experience';
 import Sidebar from './components/Sidebar';
 import Education from './components/Education';
 import Skills from './components/Skills';
+import SoundCloud from './components/SoundCloud';
 import ScrollReveal from './components/ScrollReveal';
 import { SectionProvider } from './components/ScrollReveal/SectionContext';
 import { Menu } from 'lucide-react';
@@ -83,6 +84,10 @@ const App = () => {
             <ScrollReveal id="education">
               <Education />
             </ScrollReveal>
+
+            {/* <ScrollReveal id="music">
+              <SoundCloud />
+            </ScrollReveal> */}
 
           </div>
         </main>
