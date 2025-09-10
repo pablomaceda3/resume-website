@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin, Cloud, GitBranch, Linkedin } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { resumeData } from '../../data/resume';
