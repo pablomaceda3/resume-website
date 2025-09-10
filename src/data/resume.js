@@ -93,7 +93,10 @@ export const resumeData = {
         "Built and maintained plates and pistons used for micro-stressing of cells",
         "Asked good questions and got great responses",
         "Presented findings at university symposiums and conferences",
-        "Published by Nature in 2020 (DOI: 10.1038/s41598-020-60636-1)"
+        {
+          text: "Published by Nature in 2020 (DOI: 10.1038/s41598-020-72158-5)",
+          url: "https://www.nature.com/articles/s41598-020-72158-5#citeas"
+        }
       ],
     },
     ],

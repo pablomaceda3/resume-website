@@ -35,7 +35,18 @@ const ExperienceItem = ({ title, company, location, period, achievements }) => (
                        group-hover:translate-x-1" 
           />
           <span className="text-lg text-[var(--secondary-text)] leading-relaxed">
-            {achievement}
+            {typeof achievement === 'object' && achievement.url ? (
+              <a 
+                href={achievement.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--icon-color)] hover:underline transition-all duration-200"
+              >
+                {achievement.text}
+              </a>
+            ) : (
+              typeof achievement === 'object' ? achievement.text : achievement
+            )}
           </span>
         </li>
       ))}
